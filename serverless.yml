@@ -1,0 +1,180 @@
+service: my-serverless
+
+custom:
+  usertable: 'survey-users-table-${self:provider.stage}'
+  surveytable: 'survey-all-table-${self:provider.stage}'
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-1
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn::GetAtt": ["SurveyUsersDynamoDBTable", "Arn" ] }
+        - { "Fn::GetAtt": ["SurveyDynamoDBTable", "Arn" ] }
+  environment:
+    USERS_TABLE: ${self:custom.usertable}
+    SURVEY_TABLE: ${self:custom.surveytable}
+
+functions:
+
+  #API ENDPOINTS
+  user-register:
+    handler: modules/user.register
+    events:
+      - http:
+          path: services/user/register
+          method: post
+  user-login:
+    handler: modules/user.login
+    events:
+      - http:
+          path: services/user/login
+          method: post
+  user-confirm:
+    handler: modules/user.confirm
+    events:
+      - http:
+          path: services/user/confirm
+          method: post
+  user-logout:
+    handler: modules/user.signout
+    events:
+      - http:
+          path: services/user/signout
+          method: post
+  survey-create:
+    handler: modules/survey.create
+    events:
+      - http:
+          path: services/survey/create
+          method: post
+  survey-update:
+    handler: modules/survey.update
+    events:
+      - http:
+          path: services/survey/update
+          method: post
+  survey-get-item:
+    handler: modules/survey.getItemByName
+    events:
+      - http:
+          path: services/survey/getItem
+          method: post
+  # survey-delete:
+  #   handler: modules/survey.delete
+  #   events:
+  #     - http: 'POST/survey'
+  survey-get-all:
+    handler: modules/survey.getAllSurveys
+    events:
+      - http:
+          path: services/survey/getAllSurveys
+          method: get
+  # topic-create:
+  #   handler: modules/topic.create
+  #   events:
+  #     - http: 'POST/topic'
+  # topic-update:
+  #   handler: modules/topic.update
+  #   events:
+  #     - http: 'POST/topic'
+  # topic-delete:
+  #   handler: modules/topic.delete
+  #   events:
+  #     - http: 'POST/topic'
+  # topic-get:
+  #   handler: modules/topic.get
+  #   events:
+  #     - http: 'POST/topic'
+  # question-create:
+  #   handler: modules/question.create
+  #   events:
+  #     - http: 'POST/question'
+  # question-update:
+  #   handler: modules/question.update
+  #   events:
+  #     - http: 'POST/question'
+  # question-delete:
+  #   handler: modules/question.delete
+  #   events:
+  #     - http: 'POST/question'
+  # question-get:
+  #   handler: modules/question.create
+  #   events:
+  #     - http: 'GET/question'
+
+resources:
+  Resources:
+    SurveyUsersDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          -
+            AttributeName: hashkey
+            AttributeType: S
+        KeySchema:
+          -
+            AttributeName: hashkey
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.usertable}
+    SurveyDynamoDBTable:
+      Type: 'AWS::DynamoDB::Table'
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: createdBy
+            AttributeType: S
+        KeySchema:
+          - AttributeName: name
+            KeyType: HASH
+          - AttributeName: createdBy
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        TableName: ${self:custom.surveytable}
+    # TopicDynamoDBTable:
+    #   Type: 'AWS::DynamoDB::Table'
+    #   Properties:
+    #     AttributeDefinitions:
+    #       -
+    #         AttributeName: hashkey
+    #         AttributeType: S
+    #     KeySchema:
+    #       -
+    #         AttributeName: hashkey
+    #         KeyType: HASH
+    #     ProvisionedThroughput:
+    #       ReadCapacityUnits: 1
+    #       WriteCapacityUnits: 1
+    #     TableName: ${self:custom.tableName}
+    # QuesionDynamoDBTable:
+    #   Type: 'AWS::DynamoDB::Table'
+    #   Properties:
+    #     AttributeDefinitions:
+    #       -
+    #         AttributeName: hashkey
+    #         AttributeType: S
+    #     KeySchema:
+    #       -
+    #         AttributeName: hashkey
+    #         KeyType: HASH
+    #     ProvisionedThroughput:
+    #       ReadCapacityUnits: 1
+    #       WriteCapacityUnits: 1
+    #     TableName: ${self:custom.tableName}
+    # SQS Queue to Update DynamoDB
