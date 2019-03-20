@@ -18,33 +18,22 @@ module.exports.getItemByName = (event, context, callback) =>{
             ":name": data.name
         }
     };
-    
-    function asyncGetItem(params, dynamoDb) {
-        return new Promise(function(resolve, reject) {
-            dynamoDb.query(params, (error, result) => {
-                if (error) {
-                console.log(error);
-                reject(error);
-                }
-                else resolve(result);
-                
-            });
-        });
-    }
 
-    asyncGetItem(params, dynamoDb)
-        .then(result => {
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(result)
-            });
-        })
-        .catch(err => {
+    dynamoDb.query(params, (error, result) => {
+        if (error) {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(err)
             });
-        });
+        }
+        else{
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(result)
+            });
+        }
+        
+    });
 }
 
 module.exports.update = (event, context, callback) =>{
@@ -62,33 +51,22 @@ module.exports.update = (event, context, callback) =>{
     },
     ReturnValues:"UPDATED_NEW"
     };
-    
-    function asyncUpdateItem(params, dynamoDb) {
-        return new Promise(function(resolve, reject) {
-            dynamoDb.update(params, (error, result) => {
-                if (error) {
-                console.log(error);
-                reject(error);
-                }
-                else resolve(result);
-                
-            });
-        });
-    }
 
-    asyncUpdateItem(params, dynamoDb)
-        .then(result => {
+    dynamoDb.update(params, (error, result) => {
+        if (error) {
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(error)
+            });
+        }
+        else{
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(result)
             });
-        })
-        .catch(err => {
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(err)
-            });
-        });
+        }
+        
+    });
 }
 
 module.exports.getAllSurveys = (event, context, callback) => {
@@ -96,33 +74,23 @@ module.exports.getAllSurveys = (event, context, callback) => {
     const params = {
         TableName: SURVEY_TABLE
     }
-    
-    function asyncGetAll(params, dynamoDb) {
-        return new Promise(function(resolve, reject) {
-            dynamoDb.scan(params, (error, result) => {
-                if (error) {
-                console.log(error);
-                reject(error);
-                }
-                else resolve(result);
-                
-            });
-        });
-    }
 
-    asyncGetAll(params, dynamoDb)
-        .then(result => {
+    dynamoDb.scan(params, (error, result) => {
+        if (error) {
+            console.log(error);
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(error)
+            });
+        }
+        else {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(result)
             });
-        })
-        .catch(err => {
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(err)
-            });
-        });
+        }
+
+    });
 };
 
 module.exports.create = (event, context, callback) => {
@@ -144,31 +112,19 @@ module.exports.create = (event, context, callback) => {
         Item: survey
       };
 
-    console.log(params);
-
-    function asyncCreateSurvey(params, dynamoDb) {
-        return new Promise(function(resolve, reject) {
-            dynamoDb.put(params, (error) => {
-                if (error) {
-                    reject(error);
-                }
-                else resolve("SUCCESS");
-            });
-        });
-    };
-
-    asyncCreateSurvey(params, dynamoDb)
-        .then(result => {
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(result)
-            });
-        })
-        .catch(err => {
+      dynamoDb.put(params, (error) => {
+        if (error) {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(err)
             });
-        });
+        }
+        else{
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify("SUCCESS")
+            });
+        }
+    });
 
 };
