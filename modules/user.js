@@ -4,7 +4,7 @@ const AWS = require('aws-sdk');
 const uuid = require('uuid');
 const amazonCognito = require('amazon-cognito-identity-js');
 const USERS_TABLE = process.env.USERS_TABLE || 'Users';
-const dynamoDb = new AWS.DynamoDB();
+const dynamoDb = new AWS.DynamoDB.DocumentClient();
 var Promise = require('promise');
 const userPool = new amazonCognito.CognitoUserPool({ UserPoolId : 'us-east-1_9AqkVwyny',ClientId : '7n9mmg9b2749tmtql9a5jhn7v0'});
 
@@ -39,9 +39,25 @@ module.exports.register = (event, context, callback) => {
             });
         }
         else{
-            callback(null, {
-                statusCode: 200,
-                body: JSON.stringify(result)
+            console.log(result);
+            const params = {
+                TableName: USERS_TABLE,
+                Item: user
+              };
+              
+              dynamoDb.put(params, (error) => {
+                if (error) {
+                    callback(null, {
+                        statusCode: 200,
+                        body: JSON.stringify(error)
+                    });
+                }
+                else{
+                    callback(null, {
+                        statusCode: 200,
+                        body: JSON.stringify("SUCCESS")
+                    });
+                }
             });
         }
     });
@@ -126,3 +142,26 @@ module.exports.confirm = (event, context, callback) => {
         }
     });
 };
+
+module.exports.getAllUsers = (event, context, callback)=>{
+    const params = {
+        TableName: USERS_TABLE
+    }
+
+    dynamoDb.scan(params, (error, result) => {
+        if (error) {
+            console.log(error);
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(error)
+            });
+        }
+        else {
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(result)
+            });
+        }
+
+    });
+}

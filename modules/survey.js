@@ -116,7 +116,7 @@ module.exports.create = (event, context, callback) => {
         if (error) {
             callback(null, {
                 statusCode: 200,
-                body: JSON.stringify(err)
+                body: JSON.stringify(error)
             });
         }
         else{

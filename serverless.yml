@@ -1,7 +1,7 @@
 service: my-serverless
 
 custom:
-  usertable: 'survey-users-table-${self:provider.stage}'
+  usertable: 'users-all-table-${self:provider.stage}'
   surveytable: 'survey-all-table-${self:provider.stage}'
 
 provider:
@@ -52,6 +52,12 @@ functions:
       - http:
           path: services/user/signout
           method: post
+  user-get-all:
+    handler: modules/user.getAllUsers
+    events:
+      - http:
+          path: services/user/getall
+          method: get
   survey-create:
     handler: modules/survey.create
     events:
@@ -119,13 +125,15 @@ resources:
       Type: 'AWS::DynamoDB::Table'
       Properties:
         AttributeDefinitions:
-          -
-            AttributeName: hashkey
+          - AttributeName: userName
+            AttributeType: S
+          - AttributeName: email
             AttributeType: S
         KeySchema:
-          -
-            AttributeName: hashkey
+          - AttributeName: userName
             KeyType: HASH
+          - AttributeName: email
+            KeyType: RANGE
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
