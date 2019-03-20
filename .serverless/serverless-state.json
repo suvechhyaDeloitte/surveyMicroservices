@@ -235,7 +235,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-user-register",
               "Handler": "modules/user.register",
@@ -260,14 +260,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "UserDashregisterLambdaVersionKdAKGQRnVmG8KPR8UEavN893eLsb7mKhi4w2YxhGGpc": {
+          "UserDashregisterLambdaVersion3YBdQT8pDT4inH98GtMMRTGQ1oib4NJMSVAozczAuM": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UserDashregisterLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "UserDashloginLambdaFunction": {
@@ -277,7 +277,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-user-login",
               "Handler": "modules/user.login",
@@ -302,14 +302,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "UserDashloginLambdaVersionuBKGxGgrBgylYCur0XKp24uCe6JDHAmB5WCxOi5Kgfc": {
+          "UserDashloginLambdaVersionog34mbzGb7CFUdLaSfhVuJZZaiVysLUmbMxSzN4": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UserDashloginLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "UserDashconfirmLambdaFunction": {
@@ -319,7 +319,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-user-confirm",
               "Handler": "modules/user.confirm",
@@ -344,14 +344,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "UserDashconfirmLambdaVersion4LVyS8tRNaseS2kWEHZ4pAcrgMkK26zZR58E2XHcX8": {
+          "UserDashconfirmLambdaVersionCKr7e9aJaWqysmWlsSzPqYNyHE77VpN4sL3bmSBZo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UserDashconfirmLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "UserDashlogoutLambdaFunction": {
@@ -361,7 +361,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-user-logout",
               "Handler": "modules/user.signout",
@@ -386,14 +386,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "UserDashlogoutLambdaVersionlvQfHIxfWB9gPOKtLikC3ac01Dh71mTD0E87cJDL4": {
+          "UserDashlogoutLambdaVersionCFZijfk3RW6O5aD6qedGiy8va6XA3Oe3IIXE7p4YKo": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "UserDashlogoutLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "SurveyDashcreateLambdaFunction": {
@@ -403,7 +403,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-survey-create",
               "Handler": "modules/survey.create",
@@ -428,14 +428,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "SurveyDashcreateLambdaVersionIryLGUaG77LESApesW8AU1An07GPx5oDuXtTxewk": {
+          "SurveyDashcreateLambdaVersionE4M2eH0vbQ0nZoLtI88WMcQwuJELyzR5ituSltWgYE": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SurveyDashcreateLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "SurveyDashupdateLambdaFunction": {
@@ -445,7 +445,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-survey-update",
               "Handler": "modules/survey.update",
@@ -470,14 +470,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "SurveyDashupdateLambdaVersiontavuEteWjRP9Bpnli4oZM7ZhlySdn143Y7p8FhTz8": {
+          "SurveyDashupdateLambdaVersionGl4tBkI2hUC6v5NKcHoCRikCjyJBCe60zHJgxeSHBI": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SurveyDashupdateLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "SurveyDashgetDashitemLambdaFunction": {
@@ -487,7 +487,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-survey-get-item",
               "Handler": "modules/survey.getItemByName",
@@ -512,14 +512,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "SurveyDashgetDashitemLambdaVersionoV5iSCqALBnbji1ZLhunE8oJloP5k5mp4UP46k": {
+          "SurveyDashgetDashitemLambdaVersionQzJjsHEPr7iAblmY5YdYoaOZoAf91QJgFbfZhPQ9tBc": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SurveyDashgetDashitemLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "SurveyDashgetDashallLambdaFunction": {
@@ -529,7 +529,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z/my-serverless.zip"
+                "S3Key": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z/my-serverless.zip"
               },
               "FunctionName": "my-serverless-dev-survey-get-all",
               "Handler": "modules/survey.getAllSurveys",
@@ -554,14 +554,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "SurveyDashgetDashallLambdaVersion3tYEnHR4ANulSQy8YNGcbXagSSkSg8DzV8hf6IuQ7fk": {
+          "SurveyDashgetDashallLambdaVersionQc8UAvpqJ70bPhstQPscJD5RFa5d4wiTCehWYaKhas": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "SurveyDashgetDashallLambdaFunction"
               },
-              "CodeSha256": "Y/Cj5g2UDKw3r3hsrWgQqTeQuQkYI6T56rWhaby5+J0="
+              "CodeSha256": "i0MVP/1kCVkVC2e0JufGzYI1jwhnyII0LjPRCYG9QiY="
             }
           },
           "ApiGatewayRestApi": {
@@ -1054,7 +1054,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1553064004546": {
+          "ApiGatewayDeployment1553071047829": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -1511,49 +1511,49 @@
           "UserDashregisterLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UserDashregisterLambdaVersionKdAKGQRnVmG8KPR8UEavN893eLsb7mKhi4w2YxhGGpc"
+              "Ref": "UserDashregisterLambdaVersion3YBdQT8pDT4inH98GtMMRTGQ1oib4NJMSVAozczAuM"
             }
           },
           "UserDashloginLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UserDashloginLambdaVersionuBKGxGgrBgylYCur0XKp24uCe6JDHAmB5WCxOi5Kgfc"
+              "Ref": "UserDashloginLambdaVersionog34mbzGb7CFUdLaSfhVuJZZaiVysLUmbMxSzN4"
             }
           },
           "UserDashconfirmLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UserDashconfirmLambdaVersion4LVyS8tRNaseS2kWEHZ4pAcrgMkK26zZR58E2XHcX8"
+              "Ref": "UserDashconfirmLambdaVersionCKr7e9aJaWqysmWlsSzPqYNyHE77VpN4sL3bmSBZo"
             }
           },
           "UserDashlogoutLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "UserDashlogoutLambdaVersionlvQfHIxfWB9gPOKtLikC3ac01Dh71mTD0E87cJDL4"
+              "Ref": "UserDashlogoutLambdaVersionCFZijfk3RW6O5aD6qedGiy8va6XA3Oe3IIXE7p4YKo"
             }
           },
           "SurveyDashcreateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SurveyDashcreateLambdaVersionIryLGUaG77LESApesW8AU1An07GPx5oDuXtTxewk"
+              "Ref": "SurveyDashcreateLambdaVersionE4M2eH0vbQ0nZoLtI88WMcQwuJELyzR5ituSltWgYE"
             }
           },
           "SurveyDashupdateLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SurveyDashupdateLambdaVersiontavuEteWjRP9Bpnli4oZM7ZhlySdn143Y7p8FhTz8"
+              "Ref": "SurveyDashupdateLambdaVersionGl4tBkI2hUC6v5NKcHoCRikCjyJBCe60zHJgxeSHBI"
             }
           },
           "SurveyDashgetDashitemLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SurveyDashgetDashitemLambdaVersionoV5iSCqALBnbji1ZLhunE8oJloP5k5mp4UP46k"
+              "Ref": "SurveyDashgetDashitemLambdaVersionQzJjsHEPr7iAblmY5YdYoaOZoAf91QJgFbfZhPQ9tBc"
             }
           },
           "SurveyDashgetDashallLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "SurveyDashgetDashallLambdaVersion3tYEnHR4ANulSQy8YNGcbXagSSkSg8DzV8hf6IuQ7fk"
+              "Ref": "SurveyDashgetDashallLambdaVersionQc8UAvpqJ70bPhstQPscJD5RFa5d4wiTCehWYaKhas"
             }
           },
           "ServiceEndpoint": {
@@ -1818,7 +1818,7 @@
     "artifact": "C:\\Users\\suvebanerjee\\MyServerless\\.serverless\\my-serverless.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/my-serverless/dev/1553064003835-2019-03-20T06:40:03.835Z",
+    "artifactDirectoryName": "serverless/my-serverless/dev/1553071046539-2019-03-20T08:37:26.539Z",
     "artifact": "my-serverless.zip"
   }
 }

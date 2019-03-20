@@ -31,42 +31,20 @@ module.exports.register = (event, context, callback) => {
     attributeList.push(attributeEmail);
     attributeList.push(attributePhoneNumber);
 
-    function asyncSignup(username, password, attributesList, userpool) {
-        return new Promise(function(resolve, reject) {
-            userPool.signUp(username, password, attributeList, null,function(err, result){
-                if (err) {
-                    reject(err);
-                }
-                else resolve(result);
-            });
-        });
-    };
-
-    asyncSignup(username, pw, attributeList, userPool)
-        .then(result => {
-            Promise.all([
-                dynamoDb.putItem(user, USERS_TABLE)
-            ])
-            .then(success => {
-                callback(null, {
-                    statusCode: 200,
-                    body: JSON.stringify(result.user)
-                });
-            })
-            .catch(err => {
-                callback(null, {
-                    statusCode: 200,
-                    body: JSON.stringify(err)
-                });
-            });
-        })
-        .catch(err => {
+    userPool.signUp(username, pw, attributeList, null,function(err, result){
+        if (err) {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(err)
             });
-        });
-
+        }
+        else{
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(result)
+            });
+        }
+    });
 };
 
 module.exports.login = (event, context, callback) => {
@@ -133,28 +111,18 @@ module.exports.confirm = (event, context, callback) => {
     };
     var cognitoUser = new amazonCognito.CognitoUser(userData);
 
-    function asyncconfirm(code, cognitoUser) {
-        return new Promise(function(resolve, reject) {
-            cognitoUser.confirmRegistration(code, true, function(err, result) {
-                if (err) {
-                    reject(err);
-                }
-                else resolve(result);
-            });
-        });
-    };
-
-    asyncconfirm(code, cognitoUser)
-        .then(result => {
-                callback(null, {
-                    statusCode: 200,
-                    body: JSON.stringify(result)
-                });
-        })
-        .catch(err => {
+    cognitoUser.confirmRegistration(code, true, function(err, result) {
+        if (err) {
             callback(null, {
                 statusCode: 200,
                 body: JSON.stringify(err)
             });
-        });
+        }
+        else{
+            callback(null, {
+                statusCode: 200,
+                body: JSON.stringify(result)
+            });
+        }
+    });
 };
